@@ -11,7 +11,7 @@ import UIKit
 class MainViewController: UIViewController {
 
   let myTableView = UITableView()
-  let myCellId = "cellId"
+  let myCellId = "CustomViewCell"
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
     myTableView.dataSource = self
     myTableView.delegate = self
     
-    myTableView.register(UITableViewCell.self, forCellReuseIdentifier: myCellId)
+   myTableView.register(CustomViewCell.self, forCellReuseIdentifier: "CustomViewCell")
     
     NSLayoutConstraint.activate([
       myTableView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -44,9 +44,12 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = myTableView.dequeueReusableCell(withIdentifier: myCellId, for: indexPath)
-    cell.textLabel?.text = "foo"
+    let cell = tableView.dequeueReusableCell(withIdentifier: myCellId, for: indexPath) as! CustomViewCell
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 100
   }
   
   
