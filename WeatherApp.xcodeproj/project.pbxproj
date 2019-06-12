@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		872EA0CF22B11F9F0096EB51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872EA0CE22B11F9F0096EB51 /* AppDelegate.swift */; };
-		872EA0D122B11F9F0096EB51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872EA0D022B11F9F0096EB51 /* ViewController.swift */; };
-		872EA0D422B11F9F0096EB51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 872EA0D222B11F9F0096EB51 /* Main.storyboard */; };
+		872EA0D122B11F9F0096EB51 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872EA0D022B11F9F0096EB51 /* MainViewController.swift */; };
 		872EA0D622B11FA10096EB51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 872EA0D522B11FA10096EB51 /* Assets.xcassets */; };
 		872EA0D922B11FA10096EB51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 872EA0D722B11FA10096EB51 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -17,8 +16,7 @@
 /* Begin PBXFileReference section */
 		872EA0CB22B11F9F0096EB51 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		872EA0CE22B11F9F0096EB51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		872EA0D022B11F9F0096EB51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		872EA0D322B11F9F0096EB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		872EA0D022B11F9F0096EB51 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		872EA0D522B11FA10096EB51 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		872EA0D822B11FA10096EB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		872EA0DA22B11FA10096EB51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,14 +52,29 @@
 		872EA0CD22B11F9F0096EB51 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				872EA0CE22B11F9F0096EB51 /* AppDelegate.swift */,
-				872EA0D022B11F9F0096EB51 /* ViewController.swift */,
-				872EA0D222B11F9F0096EB51 /* Main.storyboard */,
-				872EA0D522B11FA10096EB51 /* Assets.xcassets */,
-				872EA0D722B11FA10096EB51 /* LaunchScreen.storyboard */,
+				872EA0E022B120C60096EB51 /* Controllers */,
+				872EA0E122B120D70096EB51 /* Support Files */,
 				872EA0DA22B11FA10096EB51 /* Info.plist */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		872EA0E022B120C60096EB51 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				872EA0D022B11F9F0096EB51 /* MainViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		872EA0E122B120D70096EB51 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				872EA0CE22B11F9F0096EB51 /* AppDelegate.swift */,
+				872EA0D522B11FA10096EB51 /* Assets.xcassets */,
+				872EA0D722B11FA10096EB51 /* LaunchScreen.storyboard */,
+			);
+			path = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +137,6 @@
 			files = (
 				872EA0D922B11FA10096EB51 /* LaunchScreen.storyboard in Resources */,
 				872EA0D622B11FA10096EB51 /* Assets.xcassets in Resources */,
-				872EA0D422B11F9F0096EB51 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,7 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				872EA0D122B11F9F0096EB51 /* ViewController.swift in Sources */,
+				872EA0D122B11F9F0096EB51 /* MainViewController.swift in Sources */,
 				872EA0CF22B11F9F0096EB51 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,14 +155,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		872EA0D222B11F9F0096EB51 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				872EA0D322B11F9F0096EB51 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		872EA0D722B11FA10096EB51 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
