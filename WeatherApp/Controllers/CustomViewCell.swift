@@ -32,12 +32,21 @@ class CustomViewCell: UITableViewCell {
     return label
   }()
   
+  var rightChevron: UIImageView = {
+    let img = UIImageView()
+    img.image = UIImage(named: "right")
+    img.contentMode = .scaleAspectFit
+    img.translatesAutoresizingMaskIntoConstraints = false
+    return img
+  }()
+  
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
     addSubview(myLocationLabel)
     addSubview(weatherIconView)
     addSubview(tempLabel)
+    addSubview(rightChevron)
     
     NSLayoutConstraint.activate([
       myLocationLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8),
@@ -54,6 +63,13 @@ class CustomViewCell: UITableViewCell {
     NSLayoutConstraint.activate([
       tempLabel.topAnchor.constraint(equalTo: weatherIconView.topAnchor, constant: 8),
       tempLabel.leftAnchor.constraint(equalTo: weatherIconView.rightAnchor, constant: 8)
+      ])
+    
+    NSLayoutConstraint.activate([
+      rightChevron.heightAnchor.constraint(equalToConstant: 20),
+      rightChevron.widthAnchor.constraint(equalToConstant: 20),
+      rightChevron.rightAnchor.constraint(equalTo: rightAnchor, constant: -12),
+      rightChevron.topAnchor.constraint(equalTo: weatherIconView.topAnchor)
       ])
 
   }
