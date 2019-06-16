@@ -9,12 +9,15 @@
 import UIKit
 import Moya
 import SwiftyJSON
+import Kingfisher
+
 
 class MainViewController: UIViewController {
 
   let myTableView = UITableView()
   let myCellId = "CustomViewCell"
   let provider = MoyaProvider<WeatherService>()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -55,11 +58,10 @@ class MainViewController: UIViewController {
           let temp = weatherData["main"]!["temp"].intValue
           let cloud = weatherData["clouds"]!["all"].intValue
           let wind = weatherData["wind"]!["speed"].intValue
-        
-          print(weatherData)
-          print(temp)
-          print(cloud)
-          print(wind)
+          let weatherIcon = weatherData["weather"]![0]["icon"].stringValue
+  
+          UserDataService.shared.imageIcon = weatherIcon
+          
         } catch { print(error) }
         
       case let .failure(error):
@@ -78,6 +80,11 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: myCellId, for: indexPath) as! CustomViewCell
+    if let icon = UserDataService.shared.imageIcon {
+      let mainUrl = URL(string: "http://openweathermap.org/img/w/\(icon)")!
+      cell.weatherIconView.kf.setImage(with: mainUrl)
+    }
+    
     return cell
   }
   
