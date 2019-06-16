@@ -7,17 +7,21 @@
 //
 
 import UIKit
+import Moya
+import SwiftyJSON
 
 class MainViewController: UIViewController {
 
   let myTableView = UITableView()
   let myCellId = "CustomViewCell"
+  let provider = MoyaProvider<WeatherService>()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .white
     navigationItem.title = "Weather"
     setupTableView()
+    getData()
   }
   
   func setupTableView() {
@@ -36,7 +40,36 @@ class MainViewController: UIViewController {
       myTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
       ])
   }
+  
+  func getData() {
+    provider.request(.city(citycode: "Kenya")) { result in
+      
+      switch result {
+      case let .success(moyaResponse):
+        do {
+          let data = moyaResponse.data
+          let json = JSON(data) // convert network data to json
+          
+          //save data
+          let weatherData = json["list"][0].dictionaryValue
+          let temp = weatherData["main"]!["temp"].intValue
+          let cloud = weatherData["clouds"]!["all"].intValue
+          let wind = weatherData["wind"]!["speed"].intValue
+        
+          print(weatherData)
+          print(temp)
+          print(cloud)
+          print(wind)
+        } catch { print(error) }
+        
+      case let .failure(error):
+        print("error: \(error)")
+      }
+    }
+  }
+  
 }
+
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -56,6 +89,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     let destinationVC = DetailViewController()
     navigationController?.pushViewController(destinationVC, animated: true)
   }
-  
-  
+
 }
+

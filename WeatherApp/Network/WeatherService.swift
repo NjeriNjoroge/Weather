@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-private let appId = "0fd65ae8051cec4f21c386659c25955b"
+private let apiKey = "0fd65ae8051cec4f21c386659c25955b"
 
 enum WeatherService {
   case city(citycode: String)
@@ -35,7 +35,7 @@ extension WeatherService: TargetType {
   var parameters: [String: Any]? {
     switch self {
     case .city(let citycode):
-      return ["q": citycode, "appid": appId]
+      return ["q": citycode, "appid": apiKey]
     }
   }
   

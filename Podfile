@@ -6,5 +6,5 @@ target 'WeatherApp' do
   # Pods for WeatherApp
 
 pod 'Moya', '~> 13.0'
-
+pod 'SwiftyJSON'
 end
