@@ -52,5 +52,10 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     return 100
   }
   
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let destinationVC = DetailViewController()
+    navigationController?.pushViewController(destinationVC, animated: true)
+  }
+  
   
 }
